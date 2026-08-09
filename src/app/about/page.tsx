@@ -1,24 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import {
-  MdOutlineFavoriteBorder,
   MdOutlineGroups,
   MdOutlineMenuBook,
   MdOutlineLocationOn,
   MdOutlineConstruction,
   MdOutlineForest,
   MdOutlineArrowForward,
+  MdOutlineFavoriteBorder,
 } from "react-icons/md";
-import Typewriter from "@/components/Typewriter";
 import SecondaryButton from "@/components/SecondaryButton";
-
-const HERO_PHRASES = ["Escape your 9-5", "Find your purpose", "Live Simply"];
-
-const HERO_STATS = [
-  { value: "580", label: "Acres" },
-  { value: "25", label: "Monks" },
-  { value: "0", label: "Troubles" },
-];
+import AboutHero from "@/components/AboutHero";
 
 export const metadata: Metadata = {
   title: "About | Krishna Life",
@@ -71,43 +63,7 @@ const TENNESSEE_REASONS = [
 export default function About() {
   return (
     <main className="flex flex-1 flex-col bg-white">
-      <section className="mx-auto w-full max-w-7xl px-8 pt-section pb-section sm:px-16">
-        <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
-          <h1 className="text-ink">
-            <span className="block">We&apos;re building this so you can</span>
-            <Typewriter words={HERO_PHRASES} className="mt-1" />
-          </h1>
-
-          <p className="p2 mx-auto mt-6 max-w-lg">
-            We&apos;re building a conscious experiential eco-village
-            where you can cuddle cows, grow your own food, and discover the
-            loving community you&apos;ve always wanted — a return to simple,
-            natural, way of living that's grounded in 5,000-year-old Vedic wisdom.
-          </p>
-
-          <div className="mt-16 flex flex-wrap justify-center gap-16 sm:mt-16 sm:gap-16">
-            {HERO_STATS.map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center">
-                <span className="text-[32px] font-medium leading-[1.25] tracking-[-0.02em] text-ink">
-                  {stat.value}
-                </span>
-                <span className="p2 mt-2">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative mt-16 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-neutral-200 sm:mt-20">
-          <Image
-            src="/images/village-life-community.png"
-            alt="Community members sharing a moment together on a bench in the Tennessee woods"
-            fill
-            priority
-            className="object-cover"
-            sizes="(min-width: 1280px) 1152px, 100vw"
-          />
-        </div>
-      </section>
+      <AboutHero />
 
       <section className="mx-auto w-full max-w-7xl px-8 pb-section sm:px-16">
         <h2 className="max-w-2xl text-ink">

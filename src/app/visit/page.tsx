@@ -14,6 +14,7 @@ import {
 } from "react-icons/md";
 import PrimaryButton from "@/components/PrimaryButton";
 import VolunteerForm from "@/components/VolunteerForm";
+import VisitHero from "@/components/VisitHero";
 
 export const metadata: Metadata = {
   title: "Visit | Krishna Life",
@@ -128,26 +129,7 @@ const CONTACT_EMAIL = "hello@vedicecovillage.org";
 export default function Visit() {
   return (
     <main className="flex flex-1 flex-col bg-white">
-      <section className="mx-auto w-full max-w-7xl px-8 pt-section pb-section sm:px-16">
-        <h1 className="max-w-lg text-ink">Plan Your Visit</h1>
-        <p className="p2 mt-6 max-w-lg">
-          Escape to Krishna Life Vedic Ecovillage, where nature and community
-          unite in the Tennessee mountains. Whether you&apos;re seeking a day
-          visit, a workshop, or a longer stay, we have something special for
-          everyone.
-        </p>
-
-        <div className="relative mt-16 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-neutral-200 sm:mt-20">
-          <Image
-            src="/images/krishna-life-hero.jpg"
-            alt="Visitors exploring Krishna Life Vedic Ecovillage"
-            fill
-            priority
-            className="object-cover object-bottom"
-            sizes="(min-width: 1280px) 1152px, 100vw"
-          />
-        </div>
-      </section>
+      <VisitHero />
 
       <section className="mx-auto w-full max-w-7xl px-8 pb-section sm:px-16">
         <h2 className="max-w-2xl text-ink">Ways to Experience</h2>
