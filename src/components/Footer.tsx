@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import { MdOutlineEmail, MdOutlineArrowForward } from "react-icons/md";
 import { SiSubstack, SiX, SiInstagram, SiYoutube, SiFacebook } from "react-icons/si";
 import PrimaryButton from "./PrimaryButton";
-import { momoSignature } from "@/lib/fonts";
+import Logo from "./Logo";
 
 const EXPLORE_LINKS = [
   { label: "Home", href: "/" },
@@ -41,9 +41,7 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-7xl px-8 py-section sm:px-16">
         <div className="grid gap-12 sm:grid-cols-3 sm:gap-8">
           <div>
-            <span className={`${momoSignature.className} text-2xl text-ink`}>
-              Vedic <span style={{ color: "#FF8513" }}>Eco</span>village
-            </span>
+            <Logo className="h-8 w-auto" />
             <p className="p2 mt-4 max-w-xs">
               A growing eco-farm rooted in Vedic wisdom, sustainable
               farming, and simple, sacred living in Tennessee.

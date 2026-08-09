@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
 import PrimaryButton from "./PrimaryButton";
-import { momoSignature } from "@/lib/fonts";
+import Logo from "./Logo";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -38,11 +38,8 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5 sm:px-16">
-        <a
-          href="/"
-          className={`${momoSignature.className} text-2xl text-ink`}
-        >
-          Vedic <span style={{ color: "#FF8513" }}>Eco</span>village
+        <a href="/">
+          <Logo className="h-8 w-auto" />
         </a>
 
         <div className="hidden items-center gap-9 md:flex">
