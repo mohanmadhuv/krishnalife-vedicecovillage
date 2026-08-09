@@ -70,7 +70,7 @@ export default function WaysToEngage() {
           ways to experience farm life.
         </p>
 
-        <a href="#visit" className="link shrink-0 whitespace-nowrap">
+        <a href="/visit" className="link shrink-0 whitespace-nowrap">
           View photos
           <MdImageIcon className="h-5 w-5" aria-hidden />
         </a>

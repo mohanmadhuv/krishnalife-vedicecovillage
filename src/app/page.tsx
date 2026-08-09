@@ -17,8 +17,8 @@ export default function Home() {
             from over 5000 years back and is taking shape in Tennessee.
           </p>
 
-          <a href="#visit" className="link shrink-0 whitespace-nowrap">
-            Learn our story
+          <a href="/about" className="link shrink-0 whitespace-nowrap">
+            Our story
             <span aria-hidden>→</span>
           </a>
         </div>
@@ -38,7 +38,7 @@ export default function Home() {
       <WaysToEngage />
 
       <section className="mx-auto w-full max-w-7xl px-8 pb-section sm:px-16">
-        <div className="relative aspect-[32/9] w-full overflow-hidden rounded-2xl border border-neutral-200">
+        <div className="relative aspect-[32/9] min-h-64 w-full overflow-hidden rounded-2xl border border-neutral-200">
           <Image
             src="/images/village-life-sky.png"
             alt=""

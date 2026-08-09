@@ -9,7 +9,7 @@ import { momoSignature } from "@/lib/fonts";
 const EXPLORE_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Visit", href: "#visit" },
+  { label: "Visit", href: "/visit" },
   { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
@@ -55,7 +55,7 @@ export default function Footer() {
               <MdOutlineEmail className="h-5 w-5" aria-hidden />
               {CONTACT_EMAIL}
             </a>
-            <PrimaryButton href="#visit" className="mt-6 inline-block">
+            <PrimaryButton href="/visit" className="mt-6 inline-block">
               Plan your visit
             </PrimaryButton>
           </div>

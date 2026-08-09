@@ -9,7 +9,11 @@ import CountryCodeSelect from "./CountryCodeSelect";
 const INPUT_CLASS =
   "w-full rounded-xl border border-neutral-200 px-4 py-3 text-[16px] text-ink placeholder:text-neutral-400 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink";
 
-export default function VolunteerForm() {
+export default function VolunteerForm({
+  showVisitLink = true,
+}: {
+  showVisitLink?: boolean;
+}) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">(
     "idle",
   );
@@ -33,10 +37,12 @@ export default function VolunteerForm() {
           involved on the farm.
         </p>
 
-        <a href="#visit" className="link shrink-0 whitespace-nowrap">
-          A day at the village
-          <MdOutlineArrowForward className="h-5 w-5" aria-hidden />
-        </a>
+        {showVisitLink && (
+          <a href="/visit" className="link shrink-0 whitespace-nowrap">
+            A day at the village
+            <MdOutlineArrowForward className="h-5 w-5" aria-hidden />
+          </a>
+        )}
       </div>
 
       <div className="relative isolate mt-14 grid gap-10 overflow-hidden rounded-2xl border border-neutral-200 p-8 sm:mt-16 sm:grid-cols-2 sm:gap-16 sm:p-14">

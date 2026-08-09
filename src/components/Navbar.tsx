@@ -9,7 +9,7 @@ import { momoSignature } from "@/lib/fonts";
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Visit", href: "#visit" },
+  { label: "Visit", href: "/visit" },
   { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
@@ -57,7 +57,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <PrimaryButton href="#visit" className="hidden md:inline-block">
+        <PrimaryButton href="/visit" className="hidden md:inline-block">
           Plan your visit
         </PrimaryButton>
 
@@ -89,7 +89,7 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <PrimaryButton href="#visit" onClick={() => setOpen(false)} className="mt-2 block">
+            <PrimaryButton href="/visit" onClick={() => setOpen(false)} className="mt-2 block">
               Plan Your Visit
             </PrimaryButton>
           </div>

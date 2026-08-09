@@ -7,6 +7,7 @@ import {
   MdOutlineLocationOn,
   MdOutlineConstruction,
   MdOutlineForest,
+  MdOutlineArrowForward,
 } from "react-icons/md";
 import Typewriter from "@/components/Typewriter";
 import SecondaryButton from "@/components/SecondaryButton";
@@ -140,7 +141,7 @@ export default function About() {
         <div className="grid gap-10 sm:grid-cols-2 sm:items-center sm:gap-16">
           <div>
             <h2 className="text-ink">
-              Our Story: From City Temple to Sacred Farm
+              Our Story: From City to Farm
             </h2>
             <div className="mt-6 flex flex-col gap-4">
               <p className="p2">
@@ -162,12 +163,17 @@ export default function About() {
                 land right now.
               </p>
             </div>
+
+            <a href="#visit" className="link mt-6 inline-flex w-fit">
+              Our Story
+              <MdOutlineArrowForward className="h-5 w-5" aria-hidden />
+            </a>
           </div>
 
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-neutral-200 sm:aspect-square">
             <Image
-              src="/images/village-life-volunteer-and-learn.png"
-              alt="Members of the community walking the land together"
+              src="/images/village-life-tennessee-land.png"
+              alt="Misty wetland view of the Tennessee land at dawn"
               fill
               className="object-cover"
               sizes="(min-width: 640px) 50vw, 100vw"
@@ -211,8 +217,11 @@ export default function About() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-8 pb-section sm:px-16">
-        <div className="relative isolate aspect-[32/9] w-full overflow-hidden rounded-2xl border border-[#D76F00] bg-gradient-to-br from-[#FFB45D] to-[#FF8513]">
+      <section
+        id="visit"
+        className="mx-auto w-full max-w-7xl px-8 pb-section sm:px-16"
+      >
+        <div className="relative isolate aspect-[32/9] min-h-80 w-full overflow-hidden rounded-2xl border border-[#D76F00] bg-gradient-to-br from-[#FFB45D] to-[#FF8513]">
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-8 text-center">
             <h2 className="max-w-2xl text-white">Come see it for yourself</h2>
             <p className="p1 max-w-md">
@@ -220,7 +229,7 @@ export default function About() {
               this is your chance to help build something sacred from the
               ground up.
             </p>
-            <SecondaryButton href="#visit" className="mt-2">
+            <SecondaryButton href="/visit" className="mt-2">
               Plan your visit
             </SecondaryButton>
           </div>
