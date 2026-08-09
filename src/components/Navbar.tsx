@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PrimaryButton from "./PrimaryButton";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -16,7 +17,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-30 border-b border-neutral-200 bg-white/90 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5 sm:px-16">
-        <a href="/" className="text-base font-semibold tracking-tight text-ink">
+        <a href="/" className="p1 font-medium tracking-tight text-ink">
           Vedic Ecovillage
         </a>
 
@@ -25,19 +26,16 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-neutral-600 transition-colors hover:text-ink"
+              className="p1 text-neutral-600 transition-colors hover:text-ink"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        <a
-          href="#visit"
-          className="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-neutral-800 md:inline-block"
-        >
+        <PrimaryButton href="#visit" className="hidden md:inline-block">
           Plan Your Visit
-        </a>
+        </PrimaryButton>
 
         <button
           type="button"
@@ -64,18 +62,14 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-sm font-medium text-neutral-700"
+                className="p1 text-neutral-700"
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href="#visit"
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-ink px-5 py-2.5 text-center text-sm font-medium text-white"
-            >
+            <PrimaryButton href="#visit" onClick={() => setOpen(false)} className="mt-2 block">
               Plan Your Visit
-            </a>
+            </PrimaryButton>
           </div>
         </div>
       )}
