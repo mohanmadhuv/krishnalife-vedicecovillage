@@ -3,18 +3,14 @@
 import Image from "next/image";
 import { motion, MotionConfig } from "motion/react";
 import {
-  HERO_EASE,
-  HERO_DURATION,
+  HERO_TRANSITION,
   heroItemVariants,
   heroTransition,
 } from "@/lib/heroMotion";
 
 export default function Hero() {
   return (
-    <MotionConfig
-      transition={{ duration: HERO_DURATION, ease: HERO_EASE }}
-      reducedMotion="user"
-    >
+    <MotionConfig transition={HERO_TRANSITION} reducedMotion="user">
       <section className="mx-auto w-full max-w-7xl px-8 pt-section sm:px-16">
         <motion.h1
           className="max-w-lg text-ink"

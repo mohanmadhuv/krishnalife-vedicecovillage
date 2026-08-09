@@ -4,8 +4,7 @@ import Image from "next/image";
 import { motion, MotionConfig } from "motion/react";
 import Typewriter from "@/components/Typewriter";
 import {
-  HERO_EASE,
-  HERO_DURATION,
+  HERO_TRANSITION,
   heroItemVariants,
   heroTransition,
 } from "@/lib/heroMotion";
@@ -20,10 +19,7 @@ const HERO_STATS = [
 
 export default function AboutHero() {
   return (
-    <MotionConfig
-      transition={{ duration: HERO_DURATION, ease: HERO_EASE }}
-      reducedMotion="user"
-    >
+    <MotionConfig transition={HERO_TRANSITION} reducedMotion="user">
       <section className="mx-auto w-full max-w-7xl px-8 pt-section pb-section sm:px-16">
         <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
           <motion.h1
