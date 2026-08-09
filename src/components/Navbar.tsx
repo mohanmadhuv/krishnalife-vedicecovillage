@@ -1,14 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { Momo_Signature } from "next/font/google";
+import { useEffect, useState } from "react";
 import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
 import PrimaryButton from "./PrimaryButton";
-
-const momoSignature = Momo_Signature({
-  weight: "400",
-  subsets: ["latin"],
-});
+import { momoSignature } from "@/lib/fonts";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -20,9 +15,26 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
+
+  useEffect(() => {
+    const footer = document.getElementById("site-footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setFooterVisible(entry.isIntersecting),
+    );
+    observer.observe(footer);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-neutral-200 bg-white/90 backdrop-blur-sm">
+    <header
+      className={`sticky top-0 z-30 border-b border-neutral-200 bg-white/90 backdrop-blur-sm transition-transform duration-300 ${
+        footerVisible ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5 sm:px-16">
         <a
           href="/"

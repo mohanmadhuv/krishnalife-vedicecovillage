@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { MdOutlineArrowForward } from "react-icons/md";
+import { SiSubstack } from "react-icons/si";
 
 const POSTS = [
   {
     title: "Our First Harvest Season",
-    category: "Farm Life",
     excerpt:
       "From the first seeds to the first table, a look back at what the land taught us this year.",
     image: "/images/krishna-life-hero.jpg",
@@ -12,7 +12,6 @@ const POSTS = [
   },
   {
     title: "What Volunteering Taught Us",
-    category: "Community",
     excerpt:
       "Notes from a summer of visitors who came to help and stayed to learn.",
     image: "/images/village-life-volunteer-and-learn.png",
@@ -20,7 +19,6 @@ const POSTS = [
   },
   {
     title: "Simple Living, Wide Open Sky",
-    category: "Reflections",
     excerpt:
       "On slowing down, looking up, and what the Cumberland Plateau has to teach.",
     image: "/images/village-life-sky.png",
@@ -35,10 +33,17 @@ export default function LatestFromTheFarm() {
       className="mx-auto w-full max-w-7xl px-8 pb-section sm:px-16"
     >
       <h2 className="max-w-2xl text-ink">Latest from the Farm</h2>
-      <p className="p2 mt-6 max-w-lg">
-        Field notes, reflections, and updates from daily life at the
-        ecovillage.
-      </p>
+      <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <p className="p2 max-w-lg">
+          Field notes, reflections, and updates from daily life at the
+          ecovillage.
+        </p>
+
+        <a href="#" className="link shrink-0 whitespace-nowrap">
+          Read all
+          <SiSubstack className="h-4 w-4 text-black" aria-hidden />
+        </a>
+      </div>
 
       <div className="mt-14 grid gap-6 sm:mt-16 sm:grid-cols-3">
         {POSTS.map((post) => (
@@ -58,9 +63,6 @@ export default function LatestFromTheFarm() {
             </div>
 
             <div className="flex flex-1 flex-col gap-3 p-6">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
-                {post.category}
-              </span>
               <h3 className="text-ink">{post.title}</h3>
               <p className="p2">{post.excerpt}</p>
               <span className="link mt-1">
