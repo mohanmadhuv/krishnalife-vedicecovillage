@@ -1,17 +1,14 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import {
-  MdOutlineEmail,
-  MdOutlineArrowForward,
-} from "react-icons/md";
+import { MdOutlineEmail, MdOutlineArrowForward } from "react-icons/md";
 import { SiSubstack, SiX, SiInstagram, SiYoutube, SiFacebook } from "react-icons/si";
 import PrimaryButton from "./PrimaryButton";
 import { momoSignature } from "@/lib/fonts";
 
 const EXPLORE_LINKS = [
   { label: "Home", href: "/" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Visit", href: "#visit" },
   { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
@@ -45,7 +42,7 @@ export default function Footer() {
         <div className="grid gap-12 sm:grid-cols-3 sm:gap-8">
           <div>
             <span className={`${momoSignature.className} text-2xl text-ink`}>
-              Vedic Ecovillage
+              Vedic <span style={{ color: "#FF8513" }}>Eco</span>village
             </span>
             <p className="p2 mt-4 max-w-xs">
               A growing eco-farm rooted in Vedic wisdom, sustainable
@@ -55,7 +52,7 @@ export default function Footer() {
               href={`mailto:${CONTACT_EMAIL}`}
               className="link mt-4 w-fit text-sm"
             >
-              <MdOutlineEmail className="h-4 w-4" aria-hidden />
+              <MdOutlineEmail className="h-5 w-5" aria-hidden />
               {CONTACT_EMAIL}
             </a>
             <PrimaryButton href="#visit" className="mt-6 inline-block">
@@ -107,9 +104,9 @@ export default function Footer() {
                   type="submit"
                   disabled={status === "submitting"}
                   aria-label="Subscribe"
-                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-white transition-transform duration-150 active:scale-[0.97] disabled:opacity-60"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink text-white transition-transform duration-150 active:scale-[0.97] disabled:opacity-60"
                 >
-                  <MdOutlineArrowForward className="h-4 w-4" aria-hidden />
+                  <MdOutlineArrowForward className="h-5 w-5" aria-hidden />
                 </button>
               </form>
             )}
@@ -130,9 +127,9 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 text-ink transition-colors hover:bg-neutral-50"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 text-ink transition-colors hover:bg-neutral-50"
                 >
-                  <Icon className="h-4 w-4" aria-hidden />
+                  <Icon className="h-5 w-5" aria-hidden />
                 </a>
               );
             })}

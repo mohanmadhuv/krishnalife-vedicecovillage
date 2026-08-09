@@ -1,19 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
 import PrimaryButton from "./PrimaryButton";
 import { momoSignature } from "@/lib/fonts";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Visit", href: "#visit" },
   { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
 
@@ -40,12 +42,16 @@ export default function Navbar() {
           href="/"
           className={`${momoSignature.className} text-2xl text-ink`}
         >
-          Vedic Ecovillage
+          Vedic <span style={{ color: "#FF8513" }}>Eco</span>village
         </a>
 
         <div className="hidden items-center gap-9 md:flex">
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="link">
+            <a
+              key={link.href}
+              href={link.href}
+              className={`link ${pathname === link.href ? "text-[#FF8513]" : ""}`}
+            >
               {link.label}
             </a>
           ))}
@@ -63,9 +69,9 @@ export default function Navbar() {
           className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 text-ink md:hidden"
         >
           {open ? (
-            <MdOutlineClose className="h-4 w-4" />
+            <MdOutlineClose className="h-5 w-5" />
           ) : (
-            <MdOutlineMenu className="h-4 w-4" />
+            <MdOutlineMenu className="h-5 w-5" />
           )}
         </button>
       </nav>
@@ -78,7 +84,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="link"
+                className={`link ${pathname === link.href ? "text-[#FF8513]" : ""}`}
               >
                 {link.label}
               </a>

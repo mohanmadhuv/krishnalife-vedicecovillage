@@ -7,7 +7,7 @@ import { MdOutlineArrowForward } from "react-icons/md";
 import CountryCodeSelect from "./CountryCodeSelect";
 
 const INPUT_CLASS =
-  "mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-[16px] text-ink placeholder:text-neutral-400 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink";
+  "w-full rounded-xl border border-neutral-200 px-4 py-3 text-[16px] text-ink placeholder:text-neutral-400 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink";
 
 export default function VolunteerForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">(
@@ -25,7 +25,7 @@ export default function VolunteerForm() {
   return (
     <section className="mx-auto w-full max-w-7xl px-8 pb-section sm:px-16">
       <h2 className="max-w-2xl text-ink">
-        We&apos;re officially open for volunteers!
+        We&apos;re Officially Open for Volunteers
       </h2>
       <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <p className="p2 max-w-lg">
@@ -35,7 +35,7 @@ export default function VolunteerForm() {
 
         <a href="#visit" className="link shrink-0 whitespace-nowrap">
           A day at the village
-          <MdOutlineArrowForward className="h-4 w-4" aria-hidden />
+          <MdOutlineArrowForward className="h-5 w-5" aria-hidden />
         </a>
       </div>
 
@@ -74,7 +74,7 @@ export default function VolunteerForm() {
                 required
                 autoComplete="name"
                 placeholder="Enter your full name"
-                className={INPUT_CLASS}
+                className={`mt-2 ${INPUT_CLASS}`}
               />
             </div>
 
@@ -89,7 +89,7 @@ export default function VolunteerForm() {
                 required
                 autoComplete="email"
                 placeholder="Enter your email"
-                className={INPUT_CLASS}
+                className={`mt-2 ${INPUT_CLASS}`}
               />
             </div>
 
@@ -110,7 +110,7 @@ export default function VolunteerForm() {
                   required
                   autoComplete="tel"
                   placeholder="Enter your phone number"
-                  className={`${INPUT_CLASS} mt-0 pl-24`}
+                  className={`${INPUT_CLASS} pl-24`}
                 />
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function VolunteerForm() {
                   autoComplete="off"
                   spellCheck={false}
                   placeholder="yourusername"
-                  className={`${INPUT_CLASS} mt-0 pl-8`}
+                  className={`${INPUT_CLASS} pl-8`}
                 />
               </div>
             </div>

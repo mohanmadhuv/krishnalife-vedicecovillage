@@ -41,7 +41,7 @@ export default function LatestFromTheFarm() {
 
         <a href="#" className="link shrink-0 whitespace-nowrap">
           Read all
-          <SiSubstack className="h-4 w-4 text-black" aria-hidden />
+          <SiSubstack className="h-5 w-5 text-black" aria-hidden />
         </a>
       </div>
 
@@ -50,14 +50,14 @@ export default function LatestFromTheFarm() {
           <a
             key={post.title}
             href={post.href}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 transition-colors hover:border-neutral-300"
+            className="flex flex-col overflow-hidden rounded-2xl border border-neutral-200 transition-colors hover:border-neutral-300"
           >
             <div className="relative aspect-video w-full overflow-hidden">
               <Image
                 src={post.image}
                 alt=""
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="object-cover"
                 sizes="(min-width: 1024px) 368px, (min-width: 640px) 50vw, 100vw"
               />
             </div>
@@ -67,7 +67,7 @@ export default function LatestFromTheFarm() {
               <p className="p2">{post.excerpt}</p>
               <span className="link mt-1">
                 Read more
-                <MdOutlineArrowForward className="h-4 w-4" aria-hidden />
+                <MdOutlineArrowForward className="h-5 w-5" aria-hidden />
               </span>
             </div>
           </a>

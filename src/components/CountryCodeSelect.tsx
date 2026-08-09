@@ -67,7 +67,7 @@ export default function CountryCodeSelect({
             {selected.flag}
           </span>
           <span className="leading-none">+{selected.callingCode}</span>
-          <MdOutlineKeyboardArrowDown className="h-4 w-4 text-neutral-400" />
+          <MdOutlineKeyboardArrowDown className="h-5 w-5 text-neutral-400" />
         </button>
       </Popover.Trigger>
 
@@ -78,13 +78,13 @@ export default function CountryCodeSelect({
           className="z-40 flex w-72 flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-lg"
         >
           <div className="relative border-b border-neutral-200 p-2">
-            <MdOutlineSearch className="pointer-events-none absolute left-4.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400" />
+            <MdOutlineSearch className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400" />
             <input
               autoFocus
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Search country or code"
-              className="w-full rounded-lg py-2 pl-8 pr-2 text-[16px] text-ink placeholder:text-neutral-400 focus:outline-none"
+              className="w-full rounded-lg py-2 pl-11 pr-2 text-[16px] text-ink placeholder:text-neutral-400 focus:outline-none"
             />
           </div>
 
