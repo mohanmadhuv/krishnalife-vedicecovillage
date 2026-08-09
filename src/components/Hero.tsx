@@ -67,7 +67,7 @@ export default function Hero() {
             src="/images/krishna-life-hero.jpg"
             alt="Krishna Life Vedic Ecovillage"
             fill
-            priority
+            loading="eager"
             className="object-cover object-bottom"
             sizes="(min-width: 1280px) 1152px, 100vw"
           />

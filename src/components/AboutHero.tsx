@@ -74,7 +74,7 @@ export default function AboutHero() {
             src="/images/village-life-community.png"
             alt="Community members sharing a moment together on a bench in the Tennessee woods"
             fill
-            priority
+            loading="eager"
             className="object-cover"
             sizes="(min-width: 1280px) 1152px, 100vw"
           />

@@ -45,7 +45,7 @@ export default function VisitHero() {
             src="/images/krishna-life-hero.jpg"
             alt="Visitors exploring Krishna Life Vedic Ecovillage"
             fill
-            priority
+            loading="eager"
             className="object-cover object-bottom"
             sizes="(min-width: 1280px) 1152px, 100vw"
           />
