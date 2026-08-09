@@ -6,11 +6,13 @@ import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
 import PrimaryButton from "./PrimaryButton";
 import Logo from "./Logo";
 
+const BLOG_URL = "https://southsidecommunityfarm.substack.com/";
+
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Visit", href: "/visit" },
-  { label: "Blog", href: "#blog" },
+  { label: "Blog", href: BLOG_URL, external: true },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -47,6 +49,8 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
               className={`link ${pathname === link.href ? "text-[#FF8513]" : ""}`}
             >
               {link.label}
@@ -80,6 +84,8 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
                 onClick={() => setOpen(false)}
                 className={`link ${pathname === link.href ? "text-[#FF8513]" : ""}`}
               >

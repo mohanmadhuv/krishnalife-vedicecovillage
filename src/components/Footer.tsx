@@ -10,16 +10,18 @@ import { SiSubstack, SiX, SiInstagram, SiYoutube, SiFacebook } from "react-icons
 import PrimaryButton from "./PrimaryButton";
 import Logo from "./Logo";
 
+const BLOG_URL = "https://southsidecommunityfarm.substack.com/";
+
 const EXPLORE_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Visit", href: "/visit" },
-  { label: "Blog", href: "#blog" },
+  { label: "Blog", href: BLOG_URL, external: true },
   { label: "Contact", href: "#contact" },
 ];
 
 const SOCIAL_LINKS = [
-  { label: "Substack", href: "#", icon: SiSubstack },
+  { label: "Substack", href: BLOG_URL, icon: SiSubstack },
   { label: "X", href: "#", icon: SiX },
   { label: "Instagram", href: "#", icon: SiInstagram },
   { label: "YouTube", href: "#", icon: SiYoutube },
@@ -81,6 +83,8 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
                     className="p2 transition-colors hover:text-ink"
                   >
                     {link.label}
@@ -140,6 +144,12 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
+                  target={social.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    social.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   aria-label={social.label}
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 text-ink transition-colors hover:bg-neutral-50"
                 >
