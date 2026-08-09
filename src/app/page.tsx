@@ -1,6 +1,7 @@
 import Image from "next/image";
-import WaysToConnect from "@/components/WaysToConnect";
+import WaysToEngage from "@/components/WaysToEngage";
 import BuildingConnections from "@/components/BuildingConnections";
+import LatestFromTheFarm from "@/components/LatestFromTheFarm";
 import VolunteerForm from "@/components/VolunteerForm";
 
 export default function Home() {
@@ -34,7 +35,7 @@ export default function Home() {
         </div>
       </section>
 
-      <WaysToConnect />
+      <WaysToEngage />
 
       <section className="mx-auto w-full max-w-7xl px-8 pb-section sm:px-16">
         <div className="relative aspect-[32/9] w-full overflow-hidden rounded-2xl border border-neutral-200">
@@ -55,6 +56,8 @@ export default function Home() {
       </section>
 
       <BuildingConnections />
+
+      <LatestFromTheFarm />
 
       <VolunteerForm />
     </main>

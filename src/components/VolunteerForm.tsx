@@ -34,7 +34,7 @@ export default function VolunteerForm() {
         </p>
 
         <a href="#visit" className="link shrink-0 whitespace-nowrap">
-          A day at the farm
+          A day at the village
           <MdOutlineArrowForward className="h-4 w-4" aria-hidden />
         </a>
       </div>

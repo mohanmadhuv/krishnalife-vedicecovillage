@@ -4,6 +4,7 @@ import Image from "next/image";
 import {
   MdOutlineEco,
   MdOutlinePark,
+  MdOutlineDinnerDining,
   MdOutlineImage as MdImageIcon,
 } from "react-icons/md";
 import { PiCow, PiFlower } from "react-icons/pi";
@@ -39,9 +40,16 @@ const PILLARS = [
     icon: PiFlower,
     image: "/images/village-life-wellness-retreats.png",
   },
+  {
+    title: "Love Feast (Prasadam)",
+    description:
+      "Make sure to come with an empty stomach, our 12 course feast will blow you away, and best of all it is completely free!",
+    icon: MdOutlineDinnerDining,
+    image: "/images/village-life-love-feast.png",
+  },
 ];
 
-export default function WaysToConnect() {
+export default function WaysToEngage() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -56,7 +64,7 @@ export default function WaysToConnect() {
 
   return (
     <section className="mx-auto w-full max-w-7xl px-8 py-section sm:px-16">
-      <h2 className="max-w-2xl text-ink">Ways to Connect</h2>
+      <h2 className="max-w-2xl text-ink">Ways to Engage</h2>
       <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <p className="p2 max-w-lg">
           From peaceful garden walks to hands-on volunteering, discover the
