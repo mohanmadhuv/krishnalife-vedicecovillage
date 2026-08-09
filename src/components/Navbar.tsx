@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { Momo_Signature } from "next/font/google";
+import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
 import PrimaryButton from "./PrimaryButton";
+
+const momoSignature = Momo_Signature({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -17,24 +24,23 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-30 border-b border-neutral-200 bg-white/90 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5 sm:px-16">
-        <a href="/" className="p1 font-medium tracking-tight text-ink">
+        <a
+          href="/"
+          className={`${momoSignature.className} text-2xl text-ink`}
+        >
           Vedic Ecovillage
         </a>
 
         <div className="hidden items-center gap-9 md:flex">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="p1 text-neutral-600 transition-colors hover:text-ink"
-            >
+            <a key={link.href} href={link.href} className="link">
               {link.label}
             </a>
           ))}
         </div>
 
         <PrimaryButton href="#visit" className="hidden md:inline-block">
-          Plan Your Visit
+          Plan your visit
         </PrimaryButton>
 
         <button
@@ -44,13 +50,11 @@ export default function Navbar() {
           aria-label="Toggle menu"
           className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 text-ink md:hidden"
         >
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6">
-            {open ? (
-              <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
-            ) : (
-              <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
-            )}
-          </svg>
+          {open ? (
+            <MdOutlineClose className="h-4 w-4" />
+          ) : (
+            <MdOutlineMenu className="h-4 w-4" />
+          )}
         </button>
       </nav>
 
@@ -62,7 +66,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="p1 text-neutral-700"
+                className="link"
               >
                 {link.label}
               </a>

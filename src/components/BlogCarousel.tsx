@@ -61,7 +61,7 @@ export default function BlogCarousel() {
     <section className="mx-auto w-full max-w-7xl px-8 pb-section sm:px-16">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="max-w-lg text-ink">Stories from the Village</h2>
+          <h2 className="max-w-2xl text-ink">Stories from the Village</h2>
           <p className="p2 mt-6 max-w-lg">
             Field notes, reflections, and updates from daily life at the
             ecovillage.

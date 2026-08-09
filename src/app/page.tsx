@@ -1,6 +1,7 @@
 import Image from "next/image";
 import WaysToConnect from "@/components/WaysToConnect";
 import BuildingConnections from "@/components/BuildingConnections";
+import VolunteerForm from "@/components/VolunteerForm";
 
 export default function Home() {
   return (
@@ -54,6 +55,8 @@ export default function Home() {
       </section>
 
       <BuildingConnections />
+
+      <VolunteerForm />
     </main>
   );
 }

@@ -1,28 +1,35 @@
+import {
+  MdOutlineHandshake,
+  MdOutlineGrass,
+  MdOutlineAutoAwesome,
+} from "react-icons/md";
+import { TbBrandWhatsapp } from "react-icons/tb";
+
 const PILLARS = [
   {
     title: "Mutual Support",
     description:
       "Sharing resources, knowledge, and experiences to help each other thrive.",
-    icon: HandshakeIcon,
+    icon: MdOutlineHandshake,
   },
   {
     title: "Sustainable Practices",
     description:
       "Promoting organic farming and mindful stewardship of our natural resources.",
-    icon: SproutIcon,
+    icon: MdOutlineGrass,
   },
   {
     title: "Peace & Harmony",
     description:
       "Creating spaces where people, animals, and nature coexist in balance.",
-    icon: PeaceIcon,
+    icon: MdOutlineAutoAwesome,
   },
 ];
 
 export default function BuildingConnections() {
   return (
     <section className="mx-auto w-full max-w-7xl px-8 pb-section sm:px-16">
-      <h2 className="max-w-md text-ink">Building Connections in Cumberland Plateau</h2>
+      <h2 className="max-w-2xl text-ink">Building Connections in Cumberland Plateau, TN</h2>
       <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <p className="p2 max-w-lg">
           We're honored to join a vibrant community of folks who share our
@@ -32,7 +39,7 @@ export default function BuildingConnections() {
 
         <a href="#about" className="link shrink-0 whitespace-nowrap">
           Join the community
-          <span aria-hidden>→</span>
+          <TbBrandWhatsapp className="h-4 w-4" aria-hidden />
         </a>
       </div>
 
@@ -52,53 +59,5 @@ export default function BuildingConnections() {
         })}
       </div>
     </section>
-  );
-}
-
-function HandshakeIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <circle cx="9" cy="12" r="6" stroke="currentColor" strokeWidth="1.4" />
-      <circle cx="15" cy="12" r="6" stroke="currentColor" strokeWidth="1.4" />
-    </svg>
-  );
-}
-
-function SproutIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <path
-        d="M12 20V11"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-      />
-      <path
-        d="M12 11C12 6.5 9 4.5 4 4.5 4 9 7 11 12 11Z"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12 9C12 5.5 14.2 3.5 19 3.5c0 4-2.2 6-7 6Z"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function PeaceIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.4" />
-      <path
-        d="M12 3v18M12 12 6.5 17.5M12 12l5.5 5.5"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-      />
-    </svg>
   );
 }
