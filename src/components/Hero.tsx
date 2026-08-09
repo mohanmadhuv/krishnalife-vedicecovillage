@@ -7,8 +7,18 @@ import {
   heroItemVariants,
   heroTransition,
 } from "@/lib/heroMotion";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 
 export default function Hero() {
+  // Below `sm` (640px), the subtitle row wraps to flex-col and the "Our
+  // story" link drops to the left edge, below the subtitle — so the reveal
+  // order there is title -> subtitle -> button -> image. At `sm` and above
+  // the link sits beside the subtitle instead, so it reveals last:
+  // title -> subtitle -> image -> button.
+  const isWideLayout = useMediaQuery("(min-width: 640px)", true);
+  const buttonDelayIndex = isWideLayout ? 3 : 2;
+  const imageDelayIndex = isWideLayout ? 2 : 3;
+
   return (
     <MotionConfig transition={HERO_TRANSITION} reducedMotion="user">
       <section className="mx-auto w-full max-w-7xl px-8 pt-section sm:px-16">
@@ -39,7 +49,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             variants={heroItemVariants}
-            transition={heroTransition(3)}
+            transition={heroTransition(buttonDelayIndex)}
           >
             Our story
             <span aria-hidden>→</span>
@@ -51,7 +61,7 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
           variants={heroItemVariants}
-          transition={heroTransition(2)}
+          transition={heroTransition(imageDelayIndex)}
         >
           <Image
             src="/images/krishna-life-hero.jpg"
