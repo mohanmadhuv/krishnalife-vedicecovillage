@@ -9,7 +9,7 @@ import {
 } from "react-icons/md";
 import { PiCow, PiFlower } from "react-icons/pi";
 import type { IconType } from "react-icons";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import useMeasure from "react-use-measure";
 
@@ -53,6 +53,12 @@ const PILLARS = [
 
 export default function WaysToEngage() {
   const [active, setActive] = useState(0);
+  const prevActiveRef = useRef(active);
+  const isReversing = active < prevActiveRef.current;
+
+  useEffect(() => {
+    prevActiveRef.current = active;
+  }, [active]);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -101,6 +107,7 @@ export default function WaysToEngage() {
                 icon={pillar.icon}
                 isActive={index === active}
                 onClick={() => setActive(index)}
+                skipHighlightTransition={isReversing}
               />
             ))}
           </div>
@@ -144,12 +151,14 @@ function PillarRow({
   icon: PillarIcon,
   isActive,
   onClick,
+  skipHighlightTransition,
 }: {
   title: string;
   description: string;
   icon: IconType;
   isActive: boolean;
   onClick: () => void;
+  skipHighlightTransition: boolean;
 }) {
   const [measureRef, bounds] = useMeasure();
 
@@ -164,6 +173,7 @@ function PillarRow({
         <motion.span
           layoutId="pillar-highlight"
           className="absolute inset-0 rounded-xl bg-neutral-100"
+          transition={skipHighlightTransition ? { duration: 0 } : undefined}
         />
       )}
       <div
@@ -175,14 +185,14 @@ function PillarRow({
           <h3 className="text-ink">{title}</h3>
         </span>
         <div className="relative">
-          <AnimatePresence initial={false}>
+          <AnimatePresence initial={false} mode="popLayout">
             {isActive && (
               <motion.p
                 key={title}
                 className="p2 pl-8"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6, position: "absolute" }}
+                exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
               >
                 {description}

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { MdOutlineArrowForward } from "react-icons/md";
-import { SiSubstack } from "react-icons/si";
 
 const POSTS = [
   {
@@ -40,13 +39,13 @@ export default function LatestFromTheFarm() {
         </p>
 
         <a href="#" className="link shrink-0 whitespace-nowrap">
-          Read all
-          <SiSubstack className="h-5 w-5 text-black" aria-hidden />
+          More village stories
+          <MdOutlineArrowForward className="h-5 w-5" aria-hidden />
         </a>
       </div>
 
       <div className="mt-14 grid gap-6 sm:mt-16 sm:grid-cols-3">
-        {POSTS.map((post) => (
+        {POSTS.map((post, index) => (
           <a
             key={post.title}
             href={post.href}
@@ -57,6 +56,7 @@ export default function LatestFromTheFarm() {
                 src={post.image}
                 alt=""
                 fill
+                loading={index === 0 ? "eager" : "lazy"}
                 className="object-cover"
                 sizes="(min-width: 1024px) 368px, (min-width: 640px) 50vw, 100vw"
               />

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLayoutEffect, useState } from "react";
 import Image from "next/image";
 import { motion, MotionConfig } from "motion/react";
 import {
@@ -7,7 +8,9 @@ import {
   heroItemVariants,
   heroTransition,
 } from "@/lib/heroMotion";
-import { useMediaQuery } from "@/lib/useMediaQuery";
+
+const useIsomorphicLayoutEffect =
+  typeof window === "undefined" ? () => {} : useLayoutEffect;
 
 export default function Hero() {
   // Below `sm` (640px), the subtitle row wraps to flex-col and the "Our
@@ -15,7 +18,28 @@ export default function Hero() {
   // order there is title -> subtitle -> button -> image. At `sm` and above
   // the link sits beside the subtitle instead, so it reveals last:
   // title -> subtitle -> image -> button.
-  const isWideLayout = useMediaQuery("(min-width: 640px)", true);
+  //
+  // `ready` and `isWideLayout` are set together, atomically, in one layout
+  // effect, and the entrance animation only starts (animate flips from
+  // "hidden" to "visible") once `ready` is true. This guarantees Motion
+  // never begins animating with the wrong (SSR-default) breakpoint — there
+  // is no window where it could start, then get corrected too late.
+  const [{ ready, isWideLayout }, setState] = useState({
+    ready: false,
+    isWideLayout: true,
+  });
+
+  useIsomorphicLayoutEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 640px)");
+    setState({ ready: true, isWideLayout: mediaQuery.matches });
+
+    const listener = (event: MediaQueryListEvent) =>
+      setState((s) => ({ ...s, isWideLayout: event.matches }));
+    mediaQuery.addEventListener("change", listener);
+    return () => mediaQuery.removeEventListener("change", listener);
+  }, []);
+
+  const animate = ready ? "visible" : "hidden";
   const buttonDelayIndex = isWideLayout ? 3 : 2;
   const imageDelayIndex = isWideLayout ? 2 : 3;
 
@@ -25,7 +49,7 @@ export default function Hero() {
         <motion.h1
           className="max-w-lg text-ink"
           initial="hidden"
-          animate="visible"
+          animate={animate}
           variants={heroItemVariants}
         >
           Simple Living, High Thinking Rooted in Vedic Wisdom
@@ -35,7 +59,7 @@ export default function Hero() {
           <motion.p
             className="p2 max-w-lg"
             initial="hidden"
-            animate="visible"
+            animate={animate}
             variants={heroItemVariants}
             transition={heroTransition(1)}
           >
@@ -47,7 +71,7 @@ export default function Hero() {
             href="/about"
             className="link shrink-0 whitespace-nowrap"
             initial="hidden"
-            animate="visible"
+            animate={animate}
             variants={heroItemVariants}
             transition={heroTransition(buttonDelayIndex)}
           >
@@ -59,7 +83,7 @@ export default function Hero() {
         <motion.div
           className="relative mt-16 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-neutral-200 sm:mt-20"
           initial="hidden"
-          animate="visible"
+          animate={animate}
           variants={heroItemVariants}
           transition={heroTransition(imageDelayIndex)}
         >

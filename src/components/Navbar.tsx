@@ -54,9 +54,9 @@ export default function Navbar() {
           ))}
         </div>
 
-        <PrimaryButton href="/visit" className="hidden md:inline-block">
-          Plan your visit
-        </PrimaryButton>
+        <div className="hidden min-[480px]:block">
+          <PrimaryButton href="/visit">Plan your visit</PrimaryButton>
+        </div>
 
         <button
           type="button"
@@ -86,9 +86,15 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <PrimaryButton href="/visit" onClick={() => setOpen(false)} className="mt-2 block">
-              Plan Your Visit
-            </PrimaryButton>
+            <div className="min-[480px]:hidden">
+              <PrimaryButton
+                href="/visit"
+                onClick={() => setOpen(false)}
+                className="mt-2 block"
+              >
+                Plan Your Visit
+              </PrimaryButton>
+            </div>
           </div>
         </div>
       )}

@@ -1,7 +1,11 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { MdOutlineEmail, MdOutlineArrowForward } from "react-icons/md";
+import {
+  MdOutlineEmail,
+  MdOutlineArrowForward,
+  MdOutlineLocationOn,
+} from "react-icons/md";
 import { SiSubstack, SiX, SiInstagram, SiYoutube, SiFacebook } from "react-icons/si";
 import PrimaryButton from "./PrimaryButton";
 import Logo from "./Logo";
@@ -23,6 +27,9 @@ const SOCIAL_LINKS = [
 ];
 
 const CONTACT_EMAIL = "hello@vedicecovillage.org";
+const ADDRESS = "1732 Fletcher Rd, Gruetli-Laager, TN 37339";
+const MAPS_LINK =
+  "https://www.google.com/maps/search/?api=1&query=1732+Fletcher+Rd,+Gruetli-Laager,+TN+37339";
 
 export default function Footer() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">(
@@ -52,6 +59,15 @@ export default function Footer() {
             >
               <MdOutlineEmail className="h-5 w-5" aria-hidden />
               {CONTACT_EMAIL}
+            </a>
+            <a
+              href={MAPS_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link mt-2 w-fit text-sm"
+            >
+              <MdOutlineLocationOn className="h-5 w-5" aria-hidden />
+              {ADDRESS}
             </a>
             <PrimaryButton href="/visit" className="mt-6 inline-block">
               Plan your visit
