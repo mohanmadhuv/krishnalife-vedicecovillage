@@ -28,7 +28,7 @@ export default function AboutHero() {
             animate="visible"
             variants={heroItemVariants}
           >
-            <span className="block">We&apos;re building this so you can</span>
+            <span className="block">We&apos;re building this so that you can</span>
             <Typewriter words={HERO_PHRASES} className="mt-1" />
           </motion.h1>
 
