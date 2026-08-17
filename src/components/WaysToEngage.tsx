@@ -94,6 +94,9 @@ export default function WaysToEngage() {
                 title={pillar.title}
                 image={pillar.image}
                 isActive={index === active}
+                isExiting={
+                  index === prevActiveRef.current && index !== active
+                }
               />
             ))}
           </div>
@@ -121,17 +124,25 @@ function PillarImage({
   title,
   image,
   isActive,
+  isExiting,
 }: {
   title: string;
   image: string;
   isActive: boolean;
+  isExiting: boolean;
 }) {
+  const target = isActive
+    ? { opacity: 1, y: 0 }
+    : isExiting
+      ? { opacity: 0, y: -28 }
+      : { opacity: 0, y: 28 };
+
   return (
     <motion.div
       className="absolute inset-0"
       style={{ pointerEvents: isActive ? "auto" : "none" }}
       initial={false}
-      animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 28 }}
+      animate={target}
       transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
     >
       <Image

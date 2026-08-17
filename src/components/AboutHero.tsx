@@ -9,7 +9,7 @@ import {
   heroTransition,
 } from "@/lib/heroMotion";
 
-const HERO_PHRASES = ["Escape your 9-5", "Find your purpose", "Live Simply"];
+const HERO_PHRASES = ["escape your 9-5", "find your purpose", "live simply"];
 
 const HERO_STATS = [
   { value: "580", label: "Acres" },

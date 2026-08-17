@@ -44,7 +44,7 @@ export default function Navbar() {
           <Logo className="h-8 w-auto" />
         </a>
 
-        <div className="hidden items-center gap-9 md:flex">
+        <div className="hidden items-center gap-9 min-[960px]:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -67,7 +67,7 @@ export default function Navbar() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Toggle menu"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 text-ink md:hidden"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 text-ink min-[960px]:hidden"
         >
           {open ? (
             <MdOutlineClose className="h-5 w-5" />
@@ -78,7 +78,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-neutral-200 bg-white px-8 py-6 md:hidden">
+        <div className="border-t border-neutral-200 bg-white px-8 py-6 min-[960px]:hidden">
           <div className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
               <a
